@@ -1,0 +1,5965 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{titling}
+\fancyhf{}               % Clear fancy header/footer
+\fancyhead[L]{Project Work}   % My name in Left footer
+\fancyhead[R]{Akash Das , Niranjan Dey}
+\fancyfoot[C]{\thepage}  % Page number in Right footer
+\fancyfoot[R]{Instructor: SD Sir}
+
+\makeatletter
+\let\ps@plain\ps@fancy   % Plain page style = fancy page style
+\makeatother
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\rightmargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+
+\series bold
+\size larger
+Acknowledgment :
+\end_layout
+
+\begin_layout Standard
+
+\size large
+We would like to thank and express our heartiest gratitude to our respected
+ 
+\series bold
+Prof.
+ Saurav De
+\series default
+ sir for providing us with this interesting project and help us to learn
+ some interesting result and facts regarding the topic.
+ We shall remain ever grateful to him for pushing our limit into real life
+ working field.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+
+\size large
+\color black
+One of the most popular design for analyzing the effects of different treatments
+ among different groups of population is Rectangular Block Design (RBD).
+ In practice we may come across situations where one observation is missing
+ due to some reason.
+ This leads to a very big problem in RBD set up, as we can't just remove
+ the missing data from our design, unlike CRD.
+ Thus various missing plot techniques can be performed to construct the
+ concerned tests which reflects an approximation of the true nature the
+ population characteristics, we are interested in.
+ This project is mainly focused on investigating numerically how much accurate
+ these testing procedures are.
+ We use simulation to visualize and demonstrate the relation and accuracy
+ of different testing procedure empirically.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+The data we will be working with, looks like the following,
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Blocks
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Treatments
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{11}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{12}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{1j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{1v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{21}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{22}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{2j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{2v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{i1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{i2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\stackrel{}{*}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{iv}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{b}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{b1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{b2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{bj}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{bv}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+General form of RBD with one missing data at 
+\begin_inset Formula $(i,j)^{\text{th}}$
+\end_inset
+
+cell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula $v$
+\end_inset
+
+ treatments and 
+\begin_inset Formula $b$
+\end_inset
+
+ blocks with one observation per cell.
+ One data at 
+\begin_inset Formula $(i,j)^{\text{th}}$
+\end_inset
+
+cell is missing.
+ In case of CRD we may ignore the data which is missing but, RBD doesn't
+ allow us to do so.
+ So, to perform the testing regarding the treatment effects we may adopt
+ some different procedures.
+\end_layout
+
+\begin_layout Itemize
+For the time being let us consider that the observation for treatment-1
+ of block-1 i.e.
+ 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+, is missing .
+\end_layout
+
+\begin_layout Description
+
+\series bold
+\shape italic
+\color blue
+Note: Is this consideration valid?
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Later we will consider different values of block effects and treatment effects
+ randomly.
+ So effectively the missing observation can be in any place of the table.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Approximate Testing Procedure : 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\shape smallcaps
+The method of analysis of experiments with missing observations by estimating
+ the missing observations is due to Yates (1937).
+\end_layout
+
+\begin_layout Standard
+We calulate,
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $B'_{1}=$
+\end_inset
+
+ total of all available observations for block 1 = 
+\begin_inset Formula $\underset{j(\neq1)}{\sum}y_{1j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $T'_{1}=$
+\end_inset
+
+ total of all available observations for treatment 1 = 
+\begin_inset Formula $\underset{i(\neq1)}{\sum}y_{i1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $G'=$
+\end_inset
+
+ total of all available 
+\begin_inset Formula $(bv-1)$
+\end_inset
+
+ observations for = 
+\begin_inset Formula $\underset{(i,j)\neq(1,1)}{\underset{i}{\sum}\underset{j}{\sum}}y_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let the missing observation,
+\begin_inset Formula $y_{11}=x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So, different sum of squares are as follows,
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $SS_{BL}=\frac{(B'_{1}+x)^{2}+\stackrel[2]{b}{\sum}B_{i}^{2}}{v}-\frac{(G'+x)^{2}}{bv}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $SS_{TR}=\frac{(T'+x)^{2}+\stackrel[2]{v}{\sum}T_{i}^{2}}{b}-\frac{(G'+x)^{2}}{bv}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $TSS=\underset{(i,j)\neq(1,1)}{\underset{i}{\sum}\underset{j}{\sum}}y_{ij}^{2}+x^{2}-\frac{(G'+x)^{2}}{bv}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $SSE\begin{array}[t]{l}
+=TSS-SS_{BL}-SS_{TR}\\
+=x^{2}+\frac{(G'+x)^{2}}{bv}-\frac{(B'_{1}+x)^{2}}{v}-\frac{(T'+x)^{2}}{b}+\text{ terms not involving }x
+\end{array}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Minimizing this 
+\begin_inset Formula $SSE$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $x$
+\end_inset
+
+ we obtain,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{rl}
+ & \frac{d(SSE)}{dx}=2x+\frac{2(G'+x)}{bv}-\frac{2(B'+x)}{v}-\frac{2(T'+x)}{b}=0\\
+\implies & \hat{x}=\frac{bB'_{1}+vT'_{1}-G'}{(b-1)(v-1)}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ is the LSE of the yield of the missing plot.
+\end_layout
+
+\begin_layout Standard
+Next we imputed this value in the table of observations.
+ The marginal means of the augmented table gives the block and the treatment
+ means and comparison of treatment effects are obtained directly from the
+ same comparison of treatment means from the augmented table.
+\end_layout
+
+\begin_layout Standard
+We want to test,
+\begin_inset Formula 
+\[
+\begin{array}{l}
+H_{0}:\tau_{1}=\tau_{2}=...=\tau_{v}=0\\
+vs\\
+H_{1}:\text{ at least one of the values are different from }0
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ we calculate 
+\begin_inset Formula $SS_{BL},SS_{TR,}SSE$
+\end_inset
+
+ and 
+\begin_inset Formula $TSS$
+\end_inset
+
+.
+ Same as we do in ordinary RBD.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sources
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d.f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $SS$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $MS=SS/d.f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Blocks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $b-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{(B'_{1}+\hat{x})^{2}+\stackrel[i=2]{b}{\sum}B_{i}^{2}}{v}-\frac{(G'+\hat{x})^{2}}{bv}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $MS_{BL}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Treatments
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $v-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\frac{(T'_{1}+\hat{x})^{2}+\stackrel[2]{v}{\sum}T_{i}^{2}}{b}-\frac{(G'+\hat{x})^{2}}{bv}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $MS_{TR}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Error
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(b-1)(v-1)-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $SSE(\hat{x})=TSS-SS_{BL}-SS_{TR}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $MSE$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TSS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $bv-2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underset{(i,j)\neq(1,1)}{\underset{i}{\sum}\underset{j}{\sum}}y_{ij}^{2}+\hat{x}^{2}-\frac{(G'+\hat{x})^{2}}{bv}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+_
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Augmented ANOVA table for Approximate testing procedure-1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An approximate test statistic of the hypothesis is, 
+\begin_inset Formula $\frac{MS_{TR}(\hat{x})}{MSE}=\frac{SS_{H_{0}}/(v-1)}{SSE(\hat{x})/(bv-v-b)}$
+\end_inset
+
+ , from the augmented table which follows approximately 
+\begin_inset Formula $F_{(v-1),(b-1)(v-1)-1}$
+\end_inset
+
+ under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Here, 1 error d.f is lost due to estimation of 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ by 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+.
+ In general, if 
+\begin_inset Formula $L$
+\end_inset
+
+ observations are missing and are estimated, then d.f s of 
+\begin_inset Formula $SSE$
+\end_inset
+
+ and 
+\begin_inset Formula $TSS$
+\end_inset
+
+ will be 
+\begin_inset Formula $(b-1)(v-1)-L$
+\end_inset
+
+ and 
+\begin_inset Formula $bv-L$
+\end_inset
+
+ respectively.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+In the general case when the observation 
+\begin_inset Formula $y_{kl}$
+\end_inset
+
+ corresponding to 
+\begin_inset Formula $k^{\text{th}}$
+\end_inset
+
+ block and 
+\begin_inset Formula $l^{\text{th}}$
+\end_inset
+
+ treatment is missing , the best estimate of yield for this plot is ,
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\hat{x}=\frac{bB'_{k}+vT'_{l}-G'}{(b-1)(v-1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where 
+\begin_inset Formula $B'_{k}$
+\end_inset
+
+ is the sum of all available observations for the 
+\begin_inset Formula $k^{\text{th}}$
+\end_inset
+
+ block and 
+\begin_inset Formula $T'_{l}$
+\end_inset
+
+ is the sum of all available observations for the 
+\begin_inset Formula $l^{\text{th}}$
+\end_inset
+
+ treatment and 
+\begin_inset Formula $G'$
+\end_inset
+
+ is the total of all available observations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\align left
+Biasedness
+\begin_inset space ~
+\end_inset
+
+of
+\begin_inset space ~
+\end_inset
+
+this
+\begin_inset space ~
+\end_inset
+
+test
+\begin_inset space ~
+\end_inset
+
+: This test is biased in the sense that expectation of the treatment MS
+ is greater than the expectation of the error MS even under null hypothesis.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+explanation
+\begin_inset space ~
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+We know that 
+\begin_inset Formula $E(MSE)=\sigma^{2}$
+\end_inset
+
+ and when no data is missing, 
+\begin_inset Formula $E(MS_{TR})=\sigma^{2}+b\sigma_{t}^{2}$
+\end_inset
+
+ where, 
+\begin_inset Formula $\sigma_{t}^{2}=\frac{1}{v-1}\sum_{j=1}^{v}\tau_{j}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, under null hypothesis, 
+\begin_inset Formula $E(MS_{TR})=\sigma^{2}$
+\end_inset
+
+, as 
+\begin_inset Formula $\sigma_{t}^{2}=\frac{1}{v-1}\sum_{j=1}^{v}(0)^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence it is the valid error for testing the null hypothesis, 
+\begin_inset Formula $H_{0}:\tau_{1}=\tau_{2}=...=\tau_{v}=0$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But, when 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ is missing and estimated by 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+, although 
+\begin_inset Formula $E(MSE)=\sigma^{2}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E(MS_{TR}(\hat{x}))=\sigma^{2}+\{\text{constant}\}\times\sigma_{t}^{2}+\text{ some positive expression}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+That is even under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(MS_{TR}(\hat{x}))=\sigma^{2}+\text{ some positive expression}>\sigma^{2}=E(MSE)
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Hence, 
+\begin_inset Formula $MS_{TR}(\hat{x})$
+\end_inset
+
+ is not the proper valid error for testing 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+Summary
+\begin_inset space ~
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If the approximate test 
+\series bold
+doesn't reject
+\series default
+ 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+, there is 
+\bar under
+no need to perform any accurate test of significance
+\bar default
+.
+ Acceptance of the null hypothesis means 
+\begin_inset Formula $E(MS_{TR}(\hat{x}))$
+\end_inset
+
+ is not significantly greater than the value of 
+\begin_inset Formula $E(MSE)$
+\end_inset
+
+, so obviously 
+\begin_inset Formula $(E(MS_{TR}(\hat{x}))-\text{some positive number})$
+\end_inset
+
+ is not significantly greater than the value of 
+\begin_inset Formula $E(MSE)$
+\end_inset
+
+ which means here the acceptance of the null hypothesis is certain.
+\end_layout
+
+\begin_layout Itemize
+But, if the null hypothesis is
+\series bold
+ rejected
+\series default
+, we can't say whether the rejection is due to high value of the estimate
+ of 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ or the other positive part.
+ Thus we will 
+\bar under
+conduct more accurate test
+\bar default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+More accurate testing procedure-1 when 
+\begin_inset Formula $\boldsymbol{H_{0}}$
+\end_inset
+
+ is rejected in the approximate test 
+\end_layout
+
+\begin_layout Itemize
+Here we use the estimated value, 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ only for calculation of 
+\begin_inset Formula $SSE$
+\end_inset
+
+, same as in the Approximate testing procedure.
+ 
+\end_layout
+
+\begin_layout Itemize
+But we don't use 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ in the calculation of 
+\begin_inset Formula $SS_{BL}$
+\end_inset
+
+ and 
+\begin_inset Formula $TSS$
+\end_inset
+
+.
+ 
+\begin_inset Formula $SS_{TR}$
+\end_inset
+
+ is calculated by subtraction.
+ 
+\end_layout
+
+\begin_layout Itemize
+So in short, omitting 
+\begin_inset Formula $y_{11}=\hat{x}$
+\end_inset
+
+ and assuming 
+\begin_inset Formula $\tau_{1}=\tau_{2}=...=\tau_{v}$
+\end_inset
+
+ , we see that,
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $SSE_{H_{0}}=SS_{TR}+SSE$
+\end_inset
+
+ as given in this table is actually the SS due to error for such an experiment
+ under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Hence, 
+\begin_inset Formula $SS_{TR}=SS_{H_{0}}=SSE_{H_{0}}-SSE$
+\end_inset
+
+ of this table is actually SS due to 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ for this experiment.
+\end_layout
+
+\begin_layout Itemize
+The test statistic is 
+\begin_inset Formula $\frac{SS_{H_{0}}/(v-1)}{SSE(\hat{x})/(bv-v-b)}\stackrel{H_{0}}{\sim}F_{(v-1),(bv-b-v)}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sources 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+d.f
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Blocks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $b-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{B'_{1}^{2}}{v-1}+\frac{\stackrel[i=2]{b}{\sum}B_{i}^{2}}{v}-\frac{G'^{2}}{bv-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $MS_{BL}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Treatments
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $v-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+SS_{TR}=TSS-SS_{BL}-SSE(\hat{x})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $MS_{TR}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Error
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(b-1)(v-1)-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+As in the augmented ANOVA table (
+\begin_inset Formula $SSE(\hat{x})$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TSS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $bv-2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underset{(i,j)\neq(1,1)}{\underset{i}{\sum}\underset{j}{\sum}}y_{ij}^{2}-\frac{G'^{2}}{bv-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+_
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ANOVA table for More accurate testing procedure-1 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+More accurate testing procedure-2 when 
+\begin_inset Formula $\boldsymbol{H_{0}}$
+\end_inset
+
+ is rejected in the approximate test
+\end_layout
+
+\begin_layout Standard
+Alternatively we may perform another more accurate test as follows,
+\end_layout
+
+\begin_layout Standard
+We find least square estimate of 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+under 
+\begin_inset Formula $H_{0}(\tau_{1}=\tau_{2}=...=\tau_{v})$
+\end_inset
+
+ say 
+\begin_inset Formula $\widetilde{x}$
+\end_inset
+
+.
+ This will be 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{x}=\frac{B'_{1}}{v-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $SS$
+\end_inset
+
+ due to 
+\begin_inset Formula $H_{0},\text{ }SS_{H_{0}}=SSE(\tilde{x})-SSE(\hat{x}),$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ also called adjusted sum of squared due to treatment with
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $d.f.=v-1$
+\end_inset
+
+.
+ The test statistic is given by,
+\begin_inset Formula 
+\[
+\frac{SS_{H_{0}}/(v-1)}{SSE(\hat{x})/(bv-v-b)}\stackrel{H_{0}}{\sim}F_{(v-1),(bv-b-v)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Accuracy of Approximations
+\end_layout
+
+\begin_layout Standard
+Now we will see actually how much accurate these testing produces are.
+\end_layout
+
+\begin_layout Description
+METHODOLOGY
+\begin_inset space ~
+\end_inset
+
+: In RBD the model is, 
+\begin_inset Formula 
+\[
+y_{ij}=\mu+\beta_{i}+\tau_{j}+\epsilon_{ij}\text{ \,\,\,where }\sum_{i}\beta_{i}=\sum_{j}\tau_{j}=0\text{ \& }\epsilon_{ij}\stackrel{iid}{\sim}N(0,1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We will use simulation to generate sample observations from this model under
+ 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+.
+ But for that we have to fix some value of 
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s and 
+\begin_inset Formula $\tau_{j}$
+\end_inset
+
+'s .
+ 
+\end_layout
+
+\begin_layout Itemize
+Under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ 
+\begin_inset Formula $\tau_{j}$
+\end_inset
+
+'s are 0, so the model becomes : 
+\begin_inset Formula $y_{ij}=\mu+\beta_{i}+\epsilon\text{ \,\,\,where }\sum_{i}\beta_{i}=0\text{ \& }\epsilon_{ij}\stackrel{iid}{\sim}N(0,1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Here we take number of blocks, 
+\begin_inset Formula $b=5$
+\end_inset
+
+ and number of treatments, 
+\begin_inset Formula $v=6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Also let, 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s to be -2, -1, 0, 1, 2 .
+ As 
+\begin_inset Formula $\sum_{i=1}^{5}\beta_{i}=0$
+\end_inset
+
+ we take such type of values of 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s .
+\begin_inset Newline newline
+\end_inset
+
+ Later we will investigate for more different type of values of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s.
+\end_layout
+
+\begin_layout Itemize
+Now our model is fixed and, 
+\begin_inset Formula 
+\[
+y_{ij}\sim N((i-3),1)\text{\ensuremath{\forall\,i=1(1)5},}j=1(1)6\,\,\,\,......................(*)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Then for different procedures we we will calculate the observed values of
+ the test statistic, 
+\begin_inset Formula $F_{obs}$
+\end_inset
+
+ for each simulation and store it.
+\end_layout
+
+\begin_layout Itemize
+Compare them with the approximate theoretical distribution and also within
+ themselves.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Description
+A
+\begin_inset space ~
+\end_inset
+
+Measure
+\begin_inset space ~
+\end_inset
+
+of
+\begin_inset space ~
+\end_inset
+
+Accuracy
+\begin_inset space ~
+\end_inset
+
+of
+\begin_inset space ~
+\end_inset
+
+Approximation
+\begin_inset space ~
+\end_inset
+
+: The sum of absolute differences between empirical CDF and the theoretical
+ CDF at the simulated points can be taken as a measure of accuracy of the
+ actual distribution and the approximated 
+\begin_inset Formula $F$
+\end_inset
+
+-distribution.
+\end_layout
+
+\begin_layout Description
+
+\series bold
+\shape italic
+\color blue
+Note: Why this measure ?
+\end_layout
+
+\begin_layout Plain Layout
+Most common loss function is squared error loss function, which makes small
+ values (modulus<1) more small and large values (modulus>1) more large.
+ But observe that here these approximations are good enough and thus the
+ errors are small which means if we use squared error loss, the order of
+ accuracy may be not reflected through these measure.
+ Thus to get an appropiate measure of comparison we take absolute error
+ loss function as a measure of accuracy.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Algorithms :
+\end_layout
+
+\begin_layout Itemize
+Fix the values of 
+\begin_inset Formula $v,b,\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s .
+ Here 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ are taken as 6 & 5 respectively.
+\end_layout
+
+\begin_layout Itemize
+simulate values from 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+ and then take 
+\begin_inset Formula $y_{ij}=i-3+(\text{simulated values})$
+\end_inset
+
+ to get a set of simulated values of 
+\begin_inset Formula $y_{ij}$
+\end_inset
+
+'s , where 
+\begin_inset Formula $i=1(1)5$
+\end_inset
+
+ and 
+\begin_inset Formula $j=1(1)6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Approximate Test :
+\series medium
+ by imputing the missing observation using its LSE
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We calculate the values of 
+\begin_inset Formula $B'_{1}$
+\end_inset
+
+,
+\begin_inset Formula $T'_{1}$
+\end_inset
+
+ & 
+\begin_inset Formula $G'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Estimate the missing value by 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Impute the estimated 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ in 
+\begin_inset Formula $(1,1)^{\text{th}}$
+\end_inset
+
+ cell.
+\end_layout
+
+\begin_layout Itemize
+Calculate 
+\begin_inset Formula $TSS,SS_{TR},SS_{BL},SSE$
+\end_inset
+
+ from this imputed data.
+\end_layout
+
+\begin_layout Itemize
+Calculate observed value of test statistic 
+\begin_inset Formula $F_{obs}=\frac{MSTr}{MSE}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+Repeat this many times and store it to a vector of observed F-values, 
+\begin_inset Quotes eld
+\end_inset
+
+F_sim
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Plot histogram of simulated values of the test statistic.
+\end_layout
+
+\begin_layout Itemize
+Over the histogram plot the approximate distribution of the test statistic,
+ which is here,
+\begin_inset Formula $F_{6-1,(5-1)(6-1)-1}\equiv F_{5,19}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+More accurate testing procedure-1 when 
+\begin_inset Formula $\boldsymbol{H_{0}}$
+\end_inset
+
+ is rejected in the approximate test : 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use SSE as calculated above, 
+\begin_inset Formula $SSE(\hat{x})=TSS(\hat{x})-SS_{BL}(\hat{x})-SS_{TR}(\hat{x})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Calculate 
+\begin_inset Formula $SS_{BL}$
+\end_inset
+
+ and 
+\begin_inset Formula $TSS$
+\end_inset
+
+ without using 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ as given in Table 2.
+\end_layout
+
+\begin_layout Itemize
+then By subtraction calculate 
+\begin_inset Formula $SS_{TR}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+SS_{TR}=TSS-SS_{BL}-SSE(\hat{x})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Calculate observed value of test statistic 
+\begin_inset Formula $F_{obs}=\frac{MSTr}{MSE}$
+\end_inset
+
+ and store it to a vector of observed F-values, 
+\begin_inset Quotes eld
+\end_inset
+
+F_sim_1
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Plot histogram of simulated values of the test statistic.
+\end_layout
+
+\begin_layout Itemize
+Over the histogram plot the approximate distribution of the test statistic,
+ which is here,
+\begin_inset Formula $F_{6-1,(5-1)(6-1)-1}\equiv F_{5,19}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+More accurate testing procedure-2 when 
+\begin_inset Formula $\boldsymbol{H_{0}}$
+\end_inset
+
+ is rejected in the approximate test : 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Already we have 
+\begin_inset Formula $SSE(\hat{x})=TSS(\hat{x})-SS_{BL}(\hat{x})-SS_{TR}(\hat{x})$
+\end_inset
+
+ now,
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Estimate the missing value by 
+\begin_inset Formula $\widetilde{x}$
+\end_inset
+
+ and impute it in 
+\begin_inset Formula $(1,1)^{\text{th}}$
+\end_inset
+
+ cell instead of 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Calculate SSE using 
+\begin_inset Formula $\widetilde{x}$
+\end_inset
+
+, 
+\begin_inset Formula $SSE(\widetilde{x})=TSS(\widetilde{x})-SS_{BL}(\widetilde{x})-SS_{TR}(\widetilde{x})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Calculate
+\begin_inset Formula $\text{ }SS_{H_{0}}=SSE(\tilde{x})-SSE(\hat{x})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Calculate the value of the observed test statistic 
+\begin_inset Formula 
+\[
+F_{obs}=\frac{SS_{H_{0}}/(v-1)}{SSE(\hat{x})/(bv-v-b)}
+\]
+
+\end_inset
+
+and store it to a vector of observed F-values, 
+\begin_inset Quotes eld
+\end_inset
+
+F_sim_2
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Plot histogram of simulated values of the test statistic 
+\end_layout
+
+\begin_layout Itemize
+Over the histogram plot the approximate distribution of the test statistic,
+ which is here,
+\begin_inset Formula $F_{6-1,(5-1)(6-1)-1}\equiv F_{5,19}$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+\size large
+R-code :
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+v = 6 ; b = 5 
+\end_layout
+
+\begin_layout Plain Layout
+
+mu = 0 ; beta = seq(-(b-1)/2,(b-1)/2,length=5); tau = rep(0,v)
+\end_layout
+
+\begin_layout Plain Layout
+
+sim = 10^5
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F_sim = NULL; F_sim_1 = NULL; F_sim_2 = NULL 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  data_sim = mu + outer(beta,tau,"+") + matrix(rnorm(b*v),nrow = b)
+\end_layout
+
+\begin_layout Plain Layout
+
+  data_sim[1,1] <- 0
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  B.1_dash <- sum(data_sim[1,])          # B.1_dash is vector of B1'
+\end_layout
+
+\begin_layout Plain Layout
+
+  T.1_dash <- sum(data_sim[,1])          # T.1_dash is vector of T1'
+\end_layout
+
+\begin_layout Plain Layout
+
+  G_dash <- sum(data_sim)                # G_dash is vector of G'
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  x_hat <- (b*B.1_dash+v*T.1_dash-G_dash)/((b-1)*(v-1))
+\end_layout
+
+\begin_layout Plain Layout
+
+  x_curl <- B.1_dash/(v-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+                   #### approximate test ####
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  data_sim[1,1] <- x_hat
+\end_layout
+
+\begin_layout Plain Layout
+
+  B <- rowSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  T <- colSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  G <- sum(data_sim)  
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSBl = sum(B^2)/v - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSTr = sum(T^2)/b - (G^2/(b*v)) ; MSTr = SSTr/(v-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+  TSS = sum(data_sim^2) - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSE = TSS - SSBl - SSTr ; MSE = SSE/(b*v-b-v)
+\end_layout
+
+\begin_layout Plain Layout
+
+  F_sim[i] <- MSTr/MSE
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  sse_hat=SSE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            #### More accurate testing procedure-1  ####
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSBl = (B.1_dash^2)/(v-1) + (sum(B[-1]^2)/v) - (G_dash^2/(b*v - 1)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+  TSS = sum(data_sim^2)-data_sim[1,1]^2 - (G_dash^2/(b*v - 1))
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSTr = TSS - SSBl - sse_hat ;  MSTr = SSTr/(v-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+  F_sim_1[i] <- MSTr/(sse_hat/(b*v-b-v))
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+            #### More accurate testing procedure-2  ####
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  data_sim[1,1] <- x_curl
+\end_layout
+
+\begin_layout Plain Layout
+
+  B <- rowSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  T <- colSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  G <- sum(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSBl = sum(B^2)/v - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSTr = sum(T^2)/b - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+  TSS = sum(data_sim^2) - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+  SSE0 = TSS - SSBl
+\end_layout
+
+\begin_layout Plain Layout
+
+  F_sim_2[i] <- ((SSE0 - SSE)/(v-1))/(sse_hat/(b*v-b-v))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+\size large
+Plots :
+\end_layout
+
+\begin_layout Standard
+Now, we shall plot the 
+\bar under
+empirical histograms
+\bar default
+ along with the theoretical curve of 
+\begin_inset Formula $F_{v-1,bv-b-v}$
+\end_inset
+
+ to study which of the test statistics is/are closest to 
+\begin_inset Formula $F_{v-1,bv-b-v}$
+\end_inset
+
+ under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F,fig.height=3.6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(F_sim,probability = TRUE,ylim = c(0,1),breaks = 60,xlim = c(0,5),
+\end_layout
+
+\begin_layout Plain Layout
+
+main="Histogram of the test statistic for  Approximate test 
+\backslash
+n and Theoretical F distribution",col="lightblue")
+\end_layout
+
+\begin_layout Plain Layout
+
+sup = seq(0,10,0.01)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sup,df(sup,df1 = (v-1),df2 = (b-1)*(v-1) - 1))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(F_sim_1,probability = TRUE,ylim = c(0,1),breaks = 60,xlim = c(0,5),
+\end_layout
+
+\begin_layout Plain Layout
+
+main="Histogram of the test statistic for more accurate test procedure-1
+ 
+\backslash
+n and Theoretical F distribution",col="lightblue")
+\end_layout
+
+\begin_layout Plain Layout
+
+sup = seq(0,10,0.01)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sup,df(sup,df1 = (v-1),df2 = (b-1)*(v-1) - 1))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(F_sim_2,probability = TRUE,ylim = c(0,1),breaks = 60,xlim = c(0,5),
+\end_layout
+
+\begin_layout Plain Layout
+
+main="Histogram of the test statistic for more accurate test procedure-2
+ 
+\backslash
+n and Theoretical F distribution",col="lightblue") 
+\end_layout
+
+\begin_layout Plain Layout
+
+sup = seq(0,10,0.01)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sup,df(sup,df1 = (v-1),df2 = b*v-b-v))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+So these distributions are actually very close to the theoretical F-distribution
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To compare them together, we will now plot all the empirical CDFs together
+ along with the theoretical CDF i.e.
+ of 
+\begin_inset Formula $F_{v-1,bv-b-v}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sup = seq(0,6,0.01)
+\end_layout
+
+\begin_layout Plain Layout
+
+F_ecdf = ecdf(F_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+F_ecdf_1 = ecdf(F_sim_1)
+\end_layout
+
+\begin_layout Plain Layout
+
+F_ecdf_2 = ecdf(F_sim_2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(sup,pf(sup,df1=v-1,df2=b*v-b-v),type = "l",lwd=0.5,col="grey",xlim=c(0,4.5),
+\end_layout
+
+\begin_layout Plain Layout
+
+  xlab="value of test statistic F", ylab="density",
+\end_layout
+
+\begin_layout Plain Layout
+
+main=
+\begin_inset Quotes erd
+\end_inset
+
+Emperical CDFs of three test procedures 
+\backslash
+n along with the Theoretical Distribution
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sup,F_ecdf(sup),type = "l",lwd=0.5,lty=2,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sup,F_ecdf_1(sup),type = "l",lwd=0.5,lty=4,col="green4")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sup,F_ecdf_2(sup),type = "l",lwd=0.5,lty=2,col="red4")
+\end_layout
+
+\begin_layout Plain Layout
+
+legend(2,0.7, legend=c("Theoretical F distribution","Approximate test",
+\end_layout
+
+\begin_layout Plain Layout
+
+ "More accurate test Procedure-1","More accurate test Procedure-2"),
+\end_layout
+
+\begin_layout Plain Layout
+
+  col=c("grey","blue","green4","red"), lty=c(1,2,4,2), cex=0.8)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that the distribution of the simulated Test statistics are a
+ little-bit deviated from the approximate theoretical distribution in Approximat
+e test.
+ But more accurate test procedures 1 & 2 are almost similar to the approximate
+ theoretical distribution, 
+\begin_inset Formula $F_{v-1,bv-b-v}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+As defined earlier, here the measures of accuracy of approximation of all
+ three procedures i.e.
+ the absolute difference from theoretical CDF those are respectively given
+ by,
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+aprox_F=pf(sup,df1 = (v-1),df2 = b*v-b-v)
+\end_layout
+
+\begin_layout Plain Layout
+
+sum(abs(F_ecdf(sup)-aprox_F))
+\end_layout
+
+\begin_layout Plain Layout
+
+sum(abs(F_ecdf_1(sup)-aprox_F))
+\end_layout
+
+\begin_layout Plain Layout
+
+sum(abs(F_ecdf_2(sup)-aprox_F))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+See that that the measure of accuracy is exactly equal for last two procedures.
+ Now there can be 
+\bar under
+doubt about this procedure
+\bar default
+.
+ 
+\series bold
+How can they be exactly equal ? 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Actually these two vectors 
+\begin_inset Quotes eld
+\end_inset
+
+F_sim_1
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+F_sim_2
+\begin_inset Quotes erd
+\end_inset
+
+ are not exactly same but they are too close.
+ To establish the fact observe that,
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sum(abs(F_sim_1-F_sim_2))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is the sum of the absolute differences are not exactly 0 but the difference
+ is too small i.e.
+ 
+\begin_inset Formula $1.851524\times10^{-10}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Size
+\end_layout
+
+\begin_layout Standard
+The empirical sizes of the tests are proportion of times the test rejects
+ the null hypothesis when it is actually true.
+ So we will consider the proportion of times the simulated value of the
+ the F statistic is bigger than the critical point.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha=0.05
+\end_layout
+
+\begin_layout Plain Layout
+
+cut_pt = qf(p = alpha ,df1 = (v-1),df2 = b*v-b-v,lower.tail = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(F_sim > cut_pt)
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(F_sim_1 > cut_pt)
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(F_sim_2 > cut_pt)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Interpretation
+\begin_inset space ~
+\end_inset
+
+: The Approximate test which gives 
+\begin_inset Formula $size=0.05903>0.05$
+\end_inset
+
+ significantly i.e.
+ it rejects more often, 
+\bar under
+even when the null hypothesis is true
+\bar default
+.
+ But the other two testing procedures are more accurate as we see their
+ empirical sizes are very close to 0.05.
+\end_layout
+
+\begin_layout Section
+Power Curves of Different Testing procedures
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{l}
+H_{0}:\tau_{1}=\tau_{2}=...=\tau_{v}=0\\
+vs\\
+H_{1}:\text{ at least one of the values are different from }0
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\text{power}\begin{array}[t]{rl}
+= & P_{H_{1}}\left(F_{obs}>F_{0.05;(v-1),(bv-b-v)}\right)\\
+= & \left[\beta(\utilde{\tau})\right]_{\{\text{at least \text{one of the}}\text{\tau_{i} \text{ is different from }0 \}}}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here observe that , as 
+\begin_inset Formula $\sum\tau_{i}^{2}$
+\end_inset
+
+ increases we will tend to reject the Null hypothesis.
+ Thus we will find the power for different values of 
+\begin_inset Formula $\sum\tau_{i}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Algorithm :
+\end_layout
+
+\begin_layout Itemize
+Fix the values of 
+\begin_inset Formula $v,b,\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s .
+ Here 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ are taken as 6 & 5 respectively and 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s are chosen randomly from, 
+\begin_inset Formula $U(-b,b)$
+\end_inset
+
+ and then adjusted by, 
+\begin_inset Formula $\beta_{i}-\bar{\beta}$
+\end_inset
+
+, so that 
+\begin_inset Formula $\sum\beta_{i}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Define a function which calculates the estimates and the sum of squares
+ in the similar manner as discussed in 
+\series bold
+section 3.1
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For each sample note that if, 
+\begin_inset Formula $F_{obs}>$
+\end_inset
+
+ the cut point and store that TRUE/FALSE outcome stored in vectors : 
+\begin_inset Quotes eld
+\end_inset
+
+power.vec
+\begin_inset Quotes erd
+\end_inset
+
+ , 
+\begin_inset Quotes eld
+\end_inset
+
+power.vec_1
+\begin_inset Quotes erd
+\end_inset
+
+ & 
+\begin_inset Quotes eld
+\end_inset
+
+power.vec_2
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Then the mean of these vectors are actually the proportion of times the
+ observed F statistic falls into the critical region which is the empirically
+ calculated power of the test for a specified value of 
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+'s as alternative hypothesis.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+\size large
+R-code :
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(50)
+\end_layout
+
+\begin_layout Plain Layout
+
+sim = 10^5; alpha = 0.05 
+\end_layout
+
+\begin_layout Plain Layout
+
+v0 = 5; b0 = 6
+\end_layout
+
+\begin_layout Plain Layout
+
+beta0 = runif(b0,-b0,b0)
+\end_layout
+
+\begin_layout Plain Layout
+
+beta0 = beta0 - mean(beta0)
+\end_layout
+
+\begin_layout Plain Layout
+
+Power_Curve=function(tau=tau0,v=v0,b=b0,mu=0,beta=beta0)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  power.vec = NULL; power.vec_1 = NULL; power.vec_2 = NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+  cut_pt = qf(p = alpha,df1 = (v-1),df2 = (b-1)*(v-1) - 1,lower.tail = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  for(i in 1:sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  {
+\end_layout
+
+\begin_layout Plain Layout
+
+   data_sim = mu + outer(beta,tau,"+") + matrix(rnorm(b*v),nrow = b)
+\end_layout
+
+\begin_layout Plain Layout
+
+   data_sim[1,1] <- 0
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+   B.1_dash <- sum(data_sim[1,])          # B.1_dash is vector of B1'
+\end_layout
+
+\begin_layout Plain Layout
+
+   T.1_dash <- sum(data_sim[,1])          # T.1_dash is vector of T1'
+\end_layout
+
+\begin_layout Plain Layout
+
+   G_dash <- sum(data_sim)                # G_dash is vector of G'
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+   x_hat <- (b*B.1_dash+v*T.1_dash-G_dash)/((b-1)*(v-1))
+\end_layout
+
+\begin_layout Plain Layout
+
+   x_curl <- B.1_dash/(v-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                   #### approximate test ####
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+   data_sim[1,1] <- x_hat
+\end_layout
+
+\begin_layout Plain Layout
+
+   B <- rowSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+   T <- colSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+   G <- sum(data_sim)  
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSBl = sum(B^2)/v - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSTr = sum(T^2)/b - (G^2/(b*v)) ; MSTr = SSTr/(v-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+   TSS = sum(data_sim^2) - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSE = TSS - SSBl - SSTr ; MSE = SSE/(b*v-b-v)
+\end_layout
+
+\begin_layout Plain Layout
+
+   power.vec[i] = (MSTr/MSE > cut_pt)
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+   sse_hat=SSE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            #### More accurate testing procedure-1  ####
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSBl = (B.1_dash^2)/(v-1) + (sum(B[-1]^2)/v) - (G_dash^2/(b*v - 1)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+   TSS = sum(data_sim^2)-data_sim[1,1]^2 - (G_dash^2/(b*v - 1))
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSTr = TSS - SSBl - sse_hat ;  MSTr = SSTr/(v-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+   power.vec_1[i] = (MSTr/(sse_hat/(b*v-b-v)) > cut_pt)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            #### More accurate testing procedure-2  ####
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   data_sim[1,1] <- x_curl
+\end_layout
+
+\begin_layout Plain Layout
+
+   B <- rowSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+   T <- colSums(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+   G <- sum(data_sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSBl = sum(B^2)/v - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSTr = sum(T^2)/b - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+   TSS = sum(data_sim^2) - (G^2/(b*v))
+\end_layout
+
+\begin_layout Plain Layout
+
+   SSE0 = TSS - SSBl
+\end_layout
+
+\begin_layout Plain Layout
+
+   power.vec_2[i] = (((SSE0 - SSE)/(v-1))/(sse_hat/(b*v-b-v)) > cut_pt)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  power=matrix(c(power.vec,power.vec_1,power.vec_2),nrow=sim)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+n = 20
+\end_layout
+
+\begin_layout Plain Layout
+
+sample.tau = NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+tau_mat = NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  sample.tau = seq(-i/10,i/10,length = v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+  tau_mat = rbind(tau_mat,sample.tau -  mean(sample.tau))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_tau_sq = apply(tau_mat,MARGIN = 1,FUN = function(x){return(sum(x^2))})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Power = NULL; Power_1 = NULL; Power_2 = NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  mat=Power_Curve(tau = tau_mat[i,])
+\end_layout
+
+\begin_layout Plain Layout
+
+  Power[i] = colMeans(mat)[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+  Power_1[i] = colMeans(mat)[2]
+\end_layout
+
+\begin_layout Plain Layout
+
+  Power_2[i] = colMeans(mat)[3]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(sum_tau_sq,Power,xlab = expression(sum(tau^2)),ylab=
+\begin_inset Quotes erd
+\end_inset
+
+Power",type = "l",
+\end_layout
+
+\begin_layout Plain Layout
+
+    main="Compariosn between the empirical Power Curves of 
+\backslash
+n all three procedures")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sum_tau_sq,Power_1,type = "l",lty=2,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(sum_tau_sq,Power_2,type = "l",lty=4,col="green")
+\end_layout
+
+\begin_layout Plain Layout
+
+legend(4,0.7, legend=c("Approximate test","More accurate test Procedure-1",
+\end_layout
+
+\begin_layout Plain Layout
+
+       "More accurate test Procedure-2"),col=c("grey","blue","green"),
+\end_layout
+
+\begin_layout Plain Layout
+
+       lty=c(1,2,4), cex=0.8)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Here also we can see that the power curve of approximate test lies over
+ the curves of more accurate tests, which indicates, it rejects the null
+ hypothesis more often than the accurate tests when the null hypothesis
+ is actually false.
+ 
+\end_layout
+
+\begin_layout Section
+Comparisons for Different Values of 
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the missing data is estimated and that estimate is such that the usual
+ orthogonality of treatment effects and block effects is lost, we may think
+ that the values of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s may affect our previous findings.
+ Also we can check the consistency of our findings 
+\end_layout
+
+\begin_layout Description
+Procedure
+\begin_inset space ~
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+we will consider different examples where we choose
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mu=2$
+\end_inset
+
+ or, 5.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s are randomly chosen such that, 
+\begin_inset Formula $\sum\beta_{i}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+we take two different values of 
+\begin_inset Formula $\sigma=2$
+\end_inset
+
+ or 4
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+we also change the 
+\series bold
+seed
+\series default
+ in the code
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+In each cases we will calculate the measures of accuracy and the size of
+ the test.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+measure of accuracy for 3 tests
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Size for 3 tests
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1.66, 4.86, 4.50, 1.21,-8.91
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.063186
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5259657 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5259657 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.06017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05134 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05134 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-4.16, -0.41, 2.56, 2.15, -0.14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.135479 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3649022
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3649022
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.058
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04981
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04981
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2.96, -2.43, -3.59, -2.8, 5.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.373459 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.303278
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.303278
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0598
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05082
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05082
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.14, -2.81, 2.73, 1.60, -3.66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.854466 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3583031 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3583031 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05946
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05045
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05045
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.35, -2.69, 4.83, 4.69, -9.18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.253546 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2912271
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2912271
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05841
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04963
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04963
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-4.09, 3.68, 4.81, -0.95, -3.45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.133166 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3622729
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3622729
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05795 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0489 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0489 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.63, 4.25, -4.12, 4.04, -5.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.677847 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2955843
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2955843
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05944
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0502 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0502 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.81, -0.58, 3.34, 3.17, -6.74
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.305436 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2646031 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2646031 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05818
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04935
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04935
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18, -15, 13,21, -37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.684606 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4339811
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4339811
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05835
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04954
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04954
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25,11,-16,-6,-14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.614976
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2090806 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2090806 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05955
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05028 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05028 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Measure of accuracy and size for different values of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ , 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+'s and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Itemize
+We conclude that these approximate test procedures are satisfactory and
+ truly reflects the actual scenario.
+ 
+\end_layout
+
+\begin_layout Itemize
+These two more accurate testing procedures performs similar and better than
+ the approximate test on an average.
+ 
+\end_layout
+
+\begin_layout Itemize
+Hence for any such one missing plot data in a RBD 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+we will conduct the approximate test first
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+if it 
+\bar under
+accepts
+\bar default
+ the Null Hypothesis then we can say treatment effects are all equal i.e.
+ 
+\begin_inset Formula $\tau_{j}=0,\,\forall j$
+\end_inset
+
+ and there is 
+\bar under
+no need to perform more accurate tests
+\bar default
+.
+\end_layout
+
+\begin_layout Itemize
+if it 
+\bar under
+rejects
+\bar default
+ the Null Hypothesis then we will conduct any of the 
+\bar under
+more accurate tests for ultimate conclusion.
+
+\bar default
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color white
+.
+\color inherit
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+
+\series bold
+\size larger
+Bibliography :
+\end_layout
+
+\begin_layout Standard
+
+\size large
+\color white
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+[1] Mukhopadhyay Parimal (2005); Applied Statistics (2nd.
+ Ed); Kolkata Books and Allied Pvt.
+ Ltd.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+[2] Dasgupta B., Gun A.
+ M., Gupta M.
+ K.
+ (2008); Fundamentals of Statistics Vol-2 (9th.
+ Ed); World Press
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+\begin_inset Formula $\boldsymbol{\dagger\ast\ast\ast\ast}$
+\end_inset
+
+ THE END 
+\begin_inset Formula $\boldsymbol{\ast\ast\ast\ast\dagger}$
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document
